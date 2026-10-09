@@ -175,7 +175,7 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
-        const SECRET_PIN = "0404";
+        const SECRET_PIN = "0507";
 
         let pinAttempt = 0;
         let popupTimeout = null;
@@ -186,24 +186,24 @@
                 // Percobaan pertama: tampilkan foto kucing
                 showCat: true,
                 emoji: '',
-                message: 'Masa tanggal spesial kita lupa?',
-                buttonText: 'Iya iya maaf 😭'
+                message: 'masa tanggal spesial kita lupa?',
+                buttonText: 'iya iya maaf 😭'
             },
             {
                 // Percobaan kedua: foto kucing marah
                 showCat: true,
                 catSrc: 'img/cat-angry.png',
                 emoji: '',
-                message: 'Serius lupa?!\nYaudah coba lagi deh.',
-                buttonText: 'Sekali lagi 🙏'
+                message: 'serius lupa?!\nyaudah coba lagi deh.',
+                buttonText: 'sekali lagi 🙏'
             },
             {
                 // Percobaan ketiga+: foto kucing thumbs up
                 showCat: true,
                 catSrc: 'img/cat-thumbsup.png',
                 emoji: '',
-                message: 'Kalau masih salah,\nketerlaluan sih.',
-                buttonText: 'Ampun 😭'
+                message: 'kalau masih salah,\nketerlaluan sih.',
+                buttonText: 'smpun 😭'
             }
         ];
 
@@ -287,8 +287,8 @@
                         if (pinInput.value === SECRET_PIN) {
                             // PIN BENAR
                             showPinPopup({
-                                message: 'Valid!\nLanjut ya sayang~',
-                                buttonText: 'Lanjut 💕'
+                                message: 'valid!\nlanjut baee~',
+                                buttonText: 'lanjut 💕'
                             }, true);
 
                             // Auto-close dan lanjut setelah 2 detik
@@ -589,6 +589,7 @@ function toggleMusic() {
     const bgMusic = document.getElementById('bg-music');
     const iconPlay = document.getElementById('icon-play');
     const iconPause = document.getElementById('icon-pause');
+    const musicPopup = document.getElementById('music-popup');
 
     if (!bgMusic) return;
 
@@ -596,10 +597,12 @@ function toggleMusic() {
         bgMusic.play().catch(console.error);
         iconPlay.style.display = 'none';
         iconPause.style.display = 'block';
+        if (musicPopup) musicPopup.classList.remove('is-paused');
     } else {
         bgMusic.pause();
         iconPlay.style.display = 'block';
         iconPause.style.display = 'none';
+        if (musicPopup) musicPopup.classList.add('is-paused');
     }
 }
 
@@ -1091,7 +1094,7 @@ function tampilkanTahap1() {
     const flames = document.querySelectorAll('.candle-flame');
 
     if (msg) {
-        msg.textContent = 'Lilin mulai ditiup...';
+        msg.textContent = 'lilin mulai ditiup...';
         msg.className = 'candle-message show-msg';
     }
 
@@ -1108,7 +1111,7 @@ function tampilkanTahap2() {
     if (msg) {
         msg.className = 'candle-message'; // fade out dulu
         setTimeout(() => {
-            msg.textContent = 'Make a wish, Berdoa dulu yaa.. ';
+            msg.textContent = 'make a wish, berdoa dulu yaa.. ';
             msg.className = 'candle-message show-msg';
         }, 400);
     }
@@ -1152,7 +1155,7 @@ function tampilkanTahap3() {
 
         setTimeout(() => {
             if (msg) {
-                msg.textContent = 'Semoga apa yang kamu doakan dan inginkan segera terlaksana yaa, Aamiin 🤍';
+                msg.textContent = 'semoga apa yang kamu doakan dan inginkan segera terlaksana yaa, aamiin 🤍';
                 msg.className = 'candle-message show-msg final-msg';
             }
         }, 600);

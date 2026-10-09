@@ -1023,16 +1023,40 @@ body {
     display: none;
 }
 
+.song-title-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
 .song-title {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
     font-size: 0.8rem;
     color: #5a4500;
     margin: 0 0 3px 0;
     font-weight: 600;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    text-align: center;
-    width: 100%;
+    animation: running-text 6s linear infinite;
+    will-change: transform;
+}
+
+.song-title-wrapper:hover .song-title,
+.music-popup.is-paused .song-title {
+    animation-play-state: paused;
+}
+
+@keyframes running-text {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .artist-name {
